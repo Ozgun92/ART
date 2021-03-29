@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     }
  
     override func viewDidAppear(_ animated: Bool) {
-        let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: "loginVC")
+        let storyboard = UIStoryboard(name: Storyboard.loginStoryboard, bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: StoryboardId.loginVC)
         present(controller, animated: true, completion: nil)
     }
   

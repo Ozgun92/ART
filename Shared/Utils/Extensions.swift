@@ -24,7 +24,17 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
         }
     }
+    
+    func simpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+   
 }
+
+
 
 
 extension AuthErrorCode {
@@ -55,11 +65,8 @@ extension AuthErrorCode {
 
 
 
-//extension UIViewController {
-//    func handleFireAuthError(error: Error) {
-//        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-//        alert.addAction(okAction)
-//        present(alert, animated: true, completion: nil)
-//    }
+//func simpleAlert(title: String, message: String) {
+//    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//    present(alert, animated: true, completion: nil)
 //}

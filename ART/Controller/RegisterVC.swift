@@ -30,7 +30,7 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        
         
         passwordTxt.addTarget(self, action: #selector(editingChanged), for: UIControl.Event.editingChanged)
         confirmPasswordTxt.addTarget(self, action: #selector(editingChanged), for: UIControl.Event.editingChanged)
@@ -59,19 +59,23 @@ class RegisterVC: UIViewController {
             confirmPassCheckImage.image = UIImage(named: AppImages.redCheck)
         }
     }
-
-
+    
+    
     @IBAction func registerClicked(_ sender: Any) {
         guard let email = emailTxt.text, email.isNotEmpty,
-             let username = usernameTxt.text, username.isNotEmpty,
-             let password = passwordTxt.text, password.isNotEmpty else
-        { return }
-              
-        print("3")
-       
+              let username = usernameTxt.text, username.isNotEmpty,
+              let password = passwordTxt.text, password.isNotEmpty else { simpleAlert(title: "Error", message: "Please fill out all fields")
+                    return
+            }
+        
+        guard let confirmPassTxt = confirmPasswordTxt.text, confirmPassTxt == password else {
+            simpleAlert(title: "Error", message: "Passwords do not match")
+            return
+        }
+        
         
         activityIndicator.startAnimating()
-       
+        
         
         guard let authUser = Auth.auth().currentUser else {
             return

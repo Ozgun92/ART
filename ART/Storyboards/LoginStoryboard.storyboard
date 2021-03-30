@@ -42,7 +42,7 @@
                                             <constraint firstAttribute="height" constant="40" id="mbq-25-Q4a"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vub-Vm-1gQ">
                                         <rect key="frame" x="0.0" y="139.5" width="374" height="28"/>
@@ -50,6 +50,9 @@
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="0.83529411760000005" green="0.3921568627" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPassClicked:" destination="lCH-jf-kK4" eventType="touchUpInside" id="epI-N9-otz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anR-M5-Gh5" customClass="RoundedButton" customModule="ART" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="179.5" width="374" height="40"/>
@@ -61,6 +64,9 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logInClicked:" destination="lCH-jf-kK4" eventType="touchUpInside" id="0Zl-aC-Kc2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f9-fe-5He" customClass="RoundedButton" customModule="ART" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="231.5" width="374" height="40"/>
@@ -86,6 +92,9 @@
                                         <state key="normal" title="Continue as guest">
                                             <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="guestClicked:" destination="lCH-jf-kK4" eventType="touchUpInside" id="545-g0-dW8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -109,6 +118,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P70-9n-Pov"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="5v7-xB-HCI" id="CvQ-bp-jsc"/>
+                        <outlet property="emailTxt" destination="KES-UX-0Ex" id="wCu-Qb-H0k"/>
+                        <outlet property="passTxt" destination="ZLa-n0-25d" id="8JV-Td-ZIP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvH-EO-6tr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

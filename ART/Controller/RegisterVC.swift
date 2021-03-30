@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+
 class RegisterVC: UIViewController {
     
     // MARK: - Outlets
@@ -29,6 +30,7 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+  
         
         passwordTxt.addTarget(self, action: #selector(editingChanged), for: UIControl.Event.editingChanged)
         confirmPasswordTxt.addTarget(self, action: #selector(editingChanged), for: UIControl.Event.editingChanged)
@@ -57,31 +59,37 @@ class RegisterVC: UIViewController {
             confirmPassCheckImage.image = UIImage(named: AppImages.redCheck)
         }
     }
-    
-    
-    
-    
+
 
     @IBAction func registerClicked(_ sender: Any) {
-        guard let emailString = emailTxt.text, emailString.isNotEmpty else { return }
-        guard let passwordString = passwordTxt.text, passwordString.isNotEmpty else { return }
-        guard let confirmPasswordTextString = confirmPasswordTxt.text, confirmPasswordTextString.isNotEmpty else { return }
-        guard passwordString == confirmPasswordTextString else { return }
+        guard let email = emailTxt.text, email.isNotEmpty,
+             let username = usernameTxt.text, username.isNotEmpty,
+             let password = passwordTxt.text, password.isNotEmpty else
+        { return }
+              
+        print("3")
+       
         
         activityIndicator.startAnimating()
+       
         
-        Auth.auth().createUser(withEmail: emailString, password: passwordString) { (result, error) in
+        guard let authUser = Auth.auth().currentUser else {
+            return
+        }
+        print("5")
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        authUser.link(with: credential) { (result, error) in
             if let error = error {
                 debugPrint(error)
+                self.handleFireAuthError(error: error)
                 return
             }
+            print("6")
             self.activityIndicator.stopAnimating()
-            print("Successfully registered new user")
+            self.dismiss(animated: true, completion: nil)
         }
-        }
-    
-
     }
-    
+}
 
 

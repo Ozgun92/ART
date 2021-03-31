@@ -27,18 +27,24 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func forgotPassClicked(_ sender: Any) {
-        
+        let vc = ForgotPasswordVC()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func logInClicked(_ sender: Any) {
         
-        guard let email = emailTxt.text, email.isNotEmpty else { return }
-        guard let password = passTxt.text, password.isNotEmpty else { return }
+        guard let email = emailTxt.text, email.isNotEmpty, let password = passTxt.text, password.isNotEmpty else {
+            simpleAlert(title: "Error", message: "Please fill out all fields")
+            return
+        }
+    
         activityIndicator.startAnimating()
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
-                self.handleFireAuthError(error: error)
+                Auth.auth().handleFireAuthError(error: error, vc: self)
                 self.activityIndicator.stopAnimating()
                 return
             }

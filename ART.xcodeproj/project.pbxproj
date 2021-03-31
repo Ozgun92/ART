@@ -16,6 +16,10 @@
 		E3348F1E261138B700358F11 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3348F1D261138B700358F11 /* Extensions.swift */; };
 		E34C10402611DEF000637463 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C103F2611DEF000637463 /* Constants.swift */; };
 		E34C10462611E24800637463 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C10452611E24800637463 /* RoundedViews.swift */; };
+		E36682DE2613AC3B00801309 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36682DC2613AC3B00801309 /* ForgotPasswordVC.swift */; };
+		E36682DF2613AC3B00801309 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E36682DD2613AC3B00801309 /* ForgotPasswordVC.xib */; };
+		E36682E62614CE0D00801309 /* Firebase + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36682E52614CE0D00801309 /* Firebase + Utils.swift */; };
+		E36682E92614CF7C00801309 /* Firebase + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36682E52614CE0D00801309 /* Firebase + Utils.swift */; };
 		E389BB022610DEAF005CD787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389BB012610DEAF005CD787 /* AppDelegate.swift */; };
 		E389BB042610DEAF005CD787 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389BB032610DEAF005CD787 /* SceneDelegate.swift */; };
 		E389BB062610DEAF005CD787 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389BB052610DEAF005CD787 /* HomeVC.swift */; };
@@ -44,6 +48,9 @@
 		E3348F1D261138B700358F11 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E34C103F2611DEF000637463 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E34C10452611E24800637463 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		E36682DC2613AC3B00801309 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		E36682DD2613AC3B00801309 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		E36682E52614CE0D00801309 /* Firebase + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase + Utils.swift"; sourceTree = "<group>"; };
 		E389BAFE2610DEAF005CD787 /* ART.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ART.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E389BB012610DEAF005CD787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E389BB032610DEAF005CD787 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +150,7 @@
 			children = (
 				E3348F1D261138B700358F11 /* Extensions.swift */,
 				E34C103F2611DEF000637463 /* Constants.swift */,
+				E36682E52614CE0D00801309 /* Firebase + Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -153,6 +161,15 @@
 				E34C10452611E24800637463 /* RoundedViews.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E36682DB2613AC0900801309 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				E36682DC2613AC3B00801309 /* ForgotPasswordVC.swift */,
+				E36682DD2613AC3B00801309 /* ForgotPasswordVC.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		E389BAF52610DEAF005CD787 = {
@@ -179,6 +196,7 @@
 		E389BB002610DEAF005CD787 /* ART */ = {
 			isa = PBXGroup;
 			children = (
+				E36682DB2613AC0900801309 /* XIBs */,
 				E3348F102611279B00358F11 /* Model */,
 				E3348F0F2611279300358F11 /* View */,
 				E3348F0E2611278200358F11 /* Controller */,
@@ -300,6 +318,7 @@
 				E389BB0B2610DEB3005CD787 /* Assets.xcassets in Resources */,
 				E3348F072611045A00358F11 /* GoogleService-Info.plist in Resources */,
 				E389BB092610DEAF005CD787 /* Main.storyboard in Resources */,
+				E36682DF2613AC3B00801309 /* ForgotPasswordVC.xib in Resources */,
 				E389BB372610E6EF005CD787 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,8 +427,10 @@
 				E389BB022610DEAF005CD787 /* AppDelegate.swift in Sources */,
 				E3348F13261128DB00358F11 /* LoginVC.swift in Sources */,
 				E34C10462611E24800637463 /* RoundedViews.swift in Sources */,
+				E36682DE2613AC3B00801309 /* ForgotPasswordVC.swift in Sources */,
 				E34C10402611DEF000637463 /* Constants.swift in Sources */,
 				E389BB042610DEAF005CD787 /* SceneDelegate.swift in Sources */,
+				E36682E62614CE0D00801309 /* Firebase + Utils.swift in Sources */,
 				E3348F17261128F300358F11 /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +441,7 @@
 			files = (
 				E389BB212610DF70005CD787 /* ViewController.swift in Sources */,
 				E389BB1D2610DF70005CD787 /* AppDelegate.swift in Sources */,
+				E36682E92614CF7C00801309 /* Firebase + Utils.swift in Sources */,
 				E389BB1F2610DF70005CD787 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

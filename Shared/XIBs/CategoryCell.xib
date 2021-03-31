@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="CategoryCell" id="gTV-IL-0wX" customClass="CategoryCell" customModule="ART" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="aerial_2" translatesAutoresizingMaskIntoConstraints="NO" id="d6r-dB-aJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="161.5"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7uS-0A-XTz">
+                        <rect key="frame" x="8" y="169.5" width="134" height="22.5"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7uS-0A-XTz" secondAttribute="bottom" constant="8" id="485-G4-eBw"/>
+                <constraint firstAttribute="trailing" secondItem="d6r-dB-aJJ" secondAttribute="trailing" id="E7b-6y-u5l"/>
+                <constraint firstItem="7uS-0A-XTz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="FbR-Qn-3gj"/>
+                <constraint firstAttribute="trailing" secondItem="7uS-0A-XTz" secondAttribute="trailing" constant="8" id="P4E-eN-Del"/>
+                <constraint firstItem="7uS-0A-XTz" firstAttribute="top" secondItem="d6r-dB-aJJ" secondAttribute="bottom" constant="8" id="eX2-7z-5tU"/>
+                <constraint firstItem="d6r-dB-aJJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eZa-9B-Lkq"/>
+                <constraint firstItem="d6r-dB-aJJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="x8U-sp-Vxv"/>
+            </constraints>
+            <connections>
+                <outlet property="categoryImg" destination="d6r-dB-aJJ" id="xDX-q1-aHN"/>
+                <outlet property="categoryLbl" destination="7uS-0A-XTz" id="qXT-1n-gbW"/>
+            </connections>
+            <point key="canvasLocation" x="34.782608695652179" y="60.9375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="aerial_2" width="1000" height="1778"/>
+    </resources>
+</document>

@@ -15,10 +15,25 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var loginOutBtn: UIBarButtonItem!
     
+    @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
+    
+    // MARK: - Categories
+    
+    var categories = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        let category = Category(name: "Nature", id: "verm", imgUrl: "https://images.unsplash.com/photo-1596135187959-562c650d98bc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=654&q=80", isActive: true, timeStamp: Timestamp())
+        categories.append(category)
+        
+        collectionView.register(UINib(nibName: Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
         
         // there is NEITHER an anonymous, nor a non-anonymour logged in user
         if Auth.auth().currentUser == nil {
@@ -33,7 +48,6 @@ class HomeVC: UIViewController {
         }
         
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         if let user = Auth.auth().currentUser, !user.isAnonymous {
@@ -78,4 +92,67 @@ class HomeVC: UIViewController {
     }
 
 }
+
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.CategoryCell, for: indexPath) as? CategoryCell {
+            cell.configureCell(category: categories[indexPath.item])
+            return cell
+        }
+        return CategoryCell()
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.width
+        let cellWidth = (width - 50) / 2
+        let cellHeight = cellWidth * 1.5
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+//extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return categories.count
+//    }
+//
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.CategoryCell, for: indexPath) as? CategoryCell {
+//
+//            cell.configureCell(category: categories[indexPath.item])
+//            return cell
+//        }
+//        return UICollectionViewCell()
+//    }
+//
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        // get the current width of the device the app is currently running on
+//        let width = view.frame.width
+//        // get the cell width based on the device width minus 50, because we have 20 spacing trailing and leading and 10 minimum space. We devide by 2 because we want two cells in one row (or section).
+//        let cellWidth = (width - 50) / 2
+//        let cellHeight = cellWidth * 1.5
+//
+//        return CGSize(width: cellWidth, height: cellHeight)
+//    }
+//}
 

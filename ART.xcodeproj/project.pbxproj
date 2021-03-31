@@ -20,6 +20,12 @@
 		E36682DF2613AC3B00801309 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E36682DD2613AC3B00801309 /* ForgotPasswordVC.xib */; };
 		E36682E62614CE0D00801309 /* Firebase + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36682E52614CE0D00801309 /* Firebase + Utils.swift */; };
 		E36682E92614CF7C00801309 /* Firebase + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36682E52614CE0D00801309 /* Firebase + Utils.swift */; };
+		E36683112614DA4000801309 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36683102614DA4000801309 /* Category.swift */; };
+		E36683162614DA7500801309 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36683102614DA4000801309 /* Category.swift */; };
+		E366831B2614DB9D00801309 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36683192614DB9D00801309 /* CategoryCell.swift */; };
+		E366831C2614DB9D00801309 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36683192614DB9D00801309 /* CategoryCell.swift */; };
+		E366831D2614DB9D00801309 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E366831A2614DB9D00801309 /* CategoryCell.xib */; };
+		E366831E2614DB9D00801309 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E366831A2614DB9D00801309 /* CategoryCell.xib */; };
 		E389BB022610DEAF005CD787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389BB012610DEAF005CD787 /* AppDelegate.swift */; };
 		E389BB042610DEAF005CD787 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389BB032610DEAF005CD787 /* SceneDelegate.swift */; };
 		E389BB062610DEAF005CD787 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389BB052610DEAF005CD787 /* HomeVC.swift */; };
@@ -51,6 +57,9 @@
 		E36682DC2613AC3B00801309 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		E36682DD2613AC3B00801309 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		E36682E52614CE0D00801309 /* Firebase + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase + Utils.swift"; sourceTree = "<group>"; };
+		E36683102614DA4000801309 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E36683192614DB9D00801309 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		E366831A2614DB9D00801309 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		E389BAFE2610DEAF005CD787 /* ART.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ART.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E389BB012610DEAF005CD787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E389BB032610DEAF005CD787 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +140,7 @@
 		E3348F102611279B00358F11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E36683102614DA4000801309 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E34C10452611E24800637463 /* RoundedViews.swift */,
+				E36683192614DB9D00801309 /* CategoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +179,14 @@
 			children = (
 				E36682DC2613AC3B00801309 /* ForgotPasswordVC.swift */,
 				E36682DD2613AC3B00801309 /* ForgotPasswordVC.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		E36683212614E29E00801309 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				E366831A2614DB9D00801309 /* CategoryCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -197,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				E36682DB2613AC0900801309 /* XIBs */,
-				E3348F102611279B00358F11 /* Model */,
 				E3348F0F2611279300358F11 /* View */,
 				E3348F0E2611278200358F11 /* Controller */,
 				E3348F11261127BF00358F11 /* Storyboards */,
@@ -225,6 +243,8 @@
 		E389BB322610DFB6005CD787 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E36683212614E29E00801309 /* XIBs */,
+				E3348F102611279B00358F11 /* Model */,
 				E34C10432611E21600637463 /* View */,
 				E3348F1C2611388800358F11 /* Utils */,
 				E389BB0A2610DEB3005CD787 /* Assets.xcassets */,
@@ -315,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E389BB0E2610DEB3005CD787 /* LaunchScreen.storyboard in Resources */,
+				E366831D2614DB9D00801309 /* CategoryCell.xib in Resources */,
 				E389BB0B2610DEB3005CD787 /* Assets.xcassets in Resources */,
 				E3348F072611045A00358F11 /* GoogleService-Info.plist in Resources */,
 				E389BB092610DEAF005CD787 /* Main.storyboard in Resources */,
@@ -327,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E366831E2614DB9D00801309 /* CategoryCell.xib in Resources */,
 				E389BB292610DF71005CD787 /* LaunchScreen.storyboard in Resources */,
 				E389BB332610E006005CD787 /* Assets.xcassets in Resources */,
 				E389BB242610DF70005CD787 /* Main.storyboard in Resources */,
@@ -432,6 +454,8 @@
 				E389BB042610DEAF005CD787 /* SceneDelegate.swift in Sources */,
 				E36682E62614CE0D00801309 /* Firebase + Utils.swift in Sources */,
 				E3348F17261128F300358F11 /* RegisterVC.swift in Sources */,
+				E36683112614DA4000801309 /* Category.swift in Sources */,
+				E366831B2614DB9D00801309 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,9 +464,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E389BB212610DF70005CD787 /* ViewController.swift in Sources */,
+				E36683162614DA7500801309 /* Category.swift in Sources */,
 				E389BB1D2610DF70005CD787 /* AppDelegate.swift in Sources */,
 				E36682E92614CF7C00801309 /* Firebase + Utils.swift in Sources */,
 				E389BB1F2610DF70005CD787 /* SceneDelegate.swift in Sources */,
+				E366831C2614DB9D00801309 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

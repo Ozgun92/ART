@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="216" id="KGk-i7-Jjw" customClass="ProductCell" customModule="ART" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="406" height="216"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="406" height="216"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exw-Hk-IVv" customClass="RoundedShadowView" customModule="ART" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="390" height="200"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aerial_2" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-ww-p7C" customClass="RoundedImageView" customModule="ART" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="184" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hhm-ww-p7C" secondAttribute="height" id="erz-TU-rsB"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="f31-r1-Iww">
+                                <rect key="frame" x="212" y="44.5" width="158" height="111.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-cW-J8j">
+                                        <rect key="frame" x="34" y="0.0" width="90.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R24-jk-X1f">
+                                        <rect key="frame" x="35" y="34.5" width="88.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vg-Qi-grv" customClass="RoundedButton" customModule="ART" customModuleProvider="target">
+                                        <rect key="frame" x="24.5" y="80.5" width="109" height="31"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.3921568627" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
+                                        <state key="normal" title="Add to cart">
+                                            <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addToCartClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gsm-Ic-tqZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEF-en-V9g">
+                                <rect key="frame" x="350" y="10" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SHI-4B-rxh"/>
+                                    <constraint firstAttribute="width" constant="30" id="YS9-Sj-Idi"/>
+                                </constraints>
+                                <state key="normal" image="empty_star"/>
+                                <connections>
+                                    <action selector="favoriteClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X8h-jb-h9m"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hhm-ww-p7C" firstAttribute="top" secondItem="Exw-Hk-IVv" secondAttribute="top" constant="8" id="0JY-ON-VXQ"/>
+                            <constraint firstItem="hhm-ww-p7C" firstAttribute="leading" secondItem="Exw-Hk-IVv" secondAttribute="leading" constant="8" id="7h0-Xx-P4v"/>
+                            <constraint firstItem="f31-r1-Iww" firstAttribute="centerY" secondItem="Exw-Hk-IVv" secondAttribute="centerY" id="Ezz-OA-Ewp"/>
+                            <constraint firstItem="JEF-en-V9g" firstAttribute="top" secondItem="Exw-Hk-IVv" secondAttribute="top" constant="10" id="FMM-4y-Lm6"/>
+                            <constraint firstItem="f31-r1-Iww" firstAttribute="leading" secondItem="hhm-ww-p7C" secondAttribute="trailing" constant="20" id="QyC-JH-d4e"/>
+                            <constraint firstAttribute="bottom" secondItem="hhm-ww-p7C" secondAttribute="bottom" constant="8" id="Xz5-uQ-reG"/>
+                            <constraint firstAttribute="trailing" secondItem="JEF-en-V9g" secondAttribute="trailing" constant="10" id="exQ-Xi-OyZ"/>
+                            <constraint firstAttribute="trailing" secondItem="f31-r1-Iww" secondAttribute="trailing" constant="20" id="i0t-Ok-k23"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Exw-Hk-IVv" secondAttribute="trailing" constant="8" id="4za-Oy-zOC"/>
+                    <constraint firstItem="Exw-Hk-IVv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="DD9-Ph-X2U"/>
+                    <constraint firstAttribute="bottom" secondItem="Exw-Hk-IVv" secondAttribute="bottom" constant="8" id="MbE-Ve-aln"/>
+                    <constraint firstItem="Exw-Hk-IVv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="w3u-f6-c1e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="favoriteBtn" destination="JEF-en-V9g" id="YOV-dp-CJ2"/>
+                <outlet property="productImg" destination="hhm-ww-p7C" id="Tc5-5t-XiE"/>
+                <outlet property="productLbl" destination="hxA-cW-J8j" id="SQK-fL-arw"/>
+                <outlet property="productPrice" destination="R24-jk-X1f" id="WK7-02-iLP"/>
+            </connections>
+            <point key="canvasLocation" x="-150.72463768115944" y="3.3482142857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="aerial_2" width="1000" height="1778"/>
+        <image name="empty_star" width="47" height="47"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

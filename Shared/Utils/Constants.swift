@@ -30,8 +30,14 @@ struct AppColors {
 
 struct Identifiers {
     static let CategoryCell = "CategoryCell"
+    static let ProductCell = "ProductCell"
 }
 
 struct Segues {
     static let ToProducts = "toProductsVC"
+}
+
+struct Log {
+    static let USER_LOGIN = "login"
+    static let USER_LOGOUT = "logout"
 }

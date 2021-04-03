@@ -31,6 +31,7 @@ class ProductCell: UITableViewCell {
     }
     
     func configureCell(product: Product) {
+   
         productLbl.text = product.name
         if let url = URL(string: product.imageUrl) {
             productImg.kf.setImage(with: url)

@@ -7,6 +7,19 @@
 
 import Foundation
 import Firebase
+
+
+extension Firestore {
+    var categories: Query {
+        return collection("categories").order(by: "timeStamp", descending: true)
+    }
+    func products(category: String) -> Query {
+        // is equal to the category id that was passed to the productsVC from the HomeVC in prepareForeSegue
+        return collection("products").whereField("category", isEqualTo: category).order(by: "timeStamp", descending: true)
+    }
+}
+
+
 extension Auth {
     func handleFireAuthError(error: Error, vc: UIViewController) {
         if let errorCode = AuthErrorCode(rawValue: error._code) {

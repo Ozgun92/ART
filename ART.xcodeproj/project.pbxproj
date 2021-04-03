@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		52694F74493FFAFB38634949 /* Pods_ARTAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD624D2647010CAE43B7451E /* Pods_ARTAdmin.framework */; };
 		890ABE154EF809D3264FED1B /* Pods_ART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19208B92F50455DFAB47508A /* Pods_ART.framework */; };
+		E30F0A712618243A005872D1 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F0A6F2618243A005872D1 /* ProductDetailVC.swift */; };
+		E30F0A722618243A005872D1 /* ProductDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E30F0A702618243A005872D1 /* ProductDetailVC.xib */; };
 		E3348F072611045A00358F11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3348F062611045A00358F11 /* GoogleService-Info.plist */; };
 		E3348F0B2611059400358F11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3348F0A2611059400358F11 /* GoogleService-Info.plist */; };
 		E3348F13261128DB00358F11 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3348F12261128DB00358F11 /* LoginVC.swift */; };
@@ -55,6 +57,8 @@
 		3E972B35C3C879B8EF2C4551 /* Pods-ART.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ART.release.xcconfig"; path = "Target Support Files/Pods-ART/Pods-ART.release.xcconfig"; sourceTree = "<group>"; };
 		4AE859D3C8F884165812EA61 /* Pods-ARTAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARTAdmin.release.xcconfig"; path = "Target Support Files/Pods-ARTAdmin/Pods-ARTAdmin.release.xcconfig"; sourceTree = "<group>"; };
 		4FC9E65738AE5C2523FBAE92 /* Pods-ART.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ART.debug.xcconfig"; path = "Target Support Files/Pods-ART/Pods-ART.debug.xcconfig"; sourceTree = "<group>"; };
+		E30F0A6F2618243A005872D1 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
+		E30F0A702618243A005872D1 /* ProductDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailVC.xib; sourceTree = "<group>"; };
 		E3348F062611045A00358F11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3348F0A2611059400358F11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3348F12261128DB00358F11 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 			children = (
 				E36682DC2613AC3B00801309 /* ForgotPasswordVC.swift */,
 				E36682DD2613AC3B00801309 /* ForgotPasswordVC.xib */,
+				E30F0A6F2618243A005872D1 /* ProductDetailVC.swift */,
+				E30F0A702618243A005872D1 /* ProductDetailVC.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				E389BB0B2610DEB3005CD787 /* Assets.xcassets in Resources */,
 				E3348F072611045A00358F11 /* GoogleService-Info.plist in Resources */,
 				E389BB092610DEAF005CD787 /* Main.storyboard in Resources */,
+				E30F0A722618243A005872D1 /* ProductDetailVC.xib in Resources */,
 				E36682DF2613AC3B00801309 /* ForgotPasswordVC.xib in Resources */,
 				E389BB372610E6EF005CD787 /* LoginStoryboard.storyboard in Resources */,
 			);
@@ -475,6 +482,7 @@
 				E36682E62614CE0D00801309 /* Firebase + Utils.swift in Sources */,
 				E3348F17261128F300358F11 /* RegisterVC.swift in Sources */,
 				E36683112614DA4000801309 /* Category.swift in Sources */,
+				E30F0A712618243A005872D1 /* ProductDetailVC.swift in Sources */,
 				E366831B2614DB9D00801309 /* CategoryCell.swift in Sources */,
 				E34ACF9F2615F5E0000143AD /* Product.swift in Sources */,
 			);

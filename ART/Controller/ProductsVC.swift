@@ -11,8 +11,11 @@ import Firebase
 class ProductsVC: UIViewController {
     
     var products = [Product]()
+    // the category that was passed from the HomeVC in the prepareForSegue. We are force unwrapping it because we can be sure it has a value
     var category: Category!
-    
+    var listener: ListenerRegistration!
+    let db = Firestore.firestore()
+
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,14 +26,69 @@ class ProductsVC: UIViewController {
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
-        
-        let product = Product(name: "Nature", id: "ecieib", category: "Category", price: 99.99, productDescription: "Description", imageUrl: "https://images.unsplash.com/photo-1497809633703-13813c9409f0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1014&q=80", timeStamp: Timestamp(), stock: 1, favorite: false)
-        
-        products.append(product)
+
     }
     
-}
+    override func viewWillAppear(_ animated: Bool) {
+        snapShotListener()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        listener.remove()
+    }
+    
+    
+    func snapShotListener() {
+        listener = db.products(category: category.id).addSnapshotListener({ (snap, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            } else {
+                snap?.documentChanges.forEach({ (change) in
+                    let data = change.document.data()
+                    let product = Product(data: data)
+                    
+                    switch change.type {
+                    case .added:
+                        self.caseAdded(change: change, product: product)
+                    case .modified:
+                        self.caseModified(change: change, product: product)
+                    case .removed:
+                        self.caseRemoved(change: change)
+                    }
+                })
+            }
+        })
+    }
 
+
+func caseAdded(change: DocumentChange, product: Product) {
+    let index = Int(change.newIndex)
+    products.insert(product, at: index)
+    tableView.insertRows(at: [IndexPath(item: index, section: 0)], with: .fade)
+}
+    
+    func caseRemoved(change: DocumentChange) {
+        let oldIndex = Int(change.oldIndex)
+        products.remove(at: oldIndex)
+        tableView.deleteRows(at: [IndexPath(item: oldIndex, section: 0)], with: .left)
+    }
+    
+    func caseModified(change: DocumentChange, product: Product) {
+        if change.oldIndex == change.newIndex {
+            let index = Int(change.newIndex)
+            products[index] = product
+            tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
+        } else {
+            let oldIndex = Int(change.oldIndex)
+            let newIndex = Int(change.newIndex)
+            products.remove(at: oldIndex)
+            products.insert(product, at: newIndex)
+            tableView.moveRow(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
+        }
+    }
+
+
+}
 
 extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
     
@@ -47,7 +105,35 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // The productDetailVC can only be accessed through a click on a product in the productsVC. That is why we can force unwrap the product in the productDetailVC, because there HAS TO be a product once we are on the productDetailView
+        let vc = ProductDetailVC()
+        let selectedProduct = products[indexPath.row]
+        // we have created an instance of product in the productDetailVC. We are setting the product we did select to the product in the productDetailVC. This is why we can be 100% that product will have a value in the productDetailVC
+        vc.product = selectedProduct
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

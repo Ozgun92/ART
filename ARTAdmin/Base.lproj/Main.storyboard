@@ -171,6 +171,7 @@
                     <navigationItem key="navigationItem" id="Okg-em-MRi"/>
                     <connections>
                         <outlet property="activityIndicator" destination="gWC-nu-veJ" id="otd-Qu-X24"/>
+                        <outlet property="addBtn" destination="H3c-Lc-K5P" id="GWi-5g-TqB"/>
                         <outlet property="categoryImg" destination="Ux3-1g-QPR" id="JSA-JY-iVp"/>
                         <outlet property="nameText" destination="qc8-sg-t1q" id="jEV-4i-sER"/>
                     </connections>

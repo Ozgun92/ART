@@ -20,6 +20,8 @@ class AddEditCategoryVC: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var addBtn: UIButton!
+    
     var categoryToEdit: Category?
     
     override func viewDidLoad() {
@@ -29,6 +31,18 @@ class AddEditCategoryVC: UIViewController {
         tap.numberOfTapsRequired = 1
         categoryImg.isUserInteractionEnabled = true
         categoryImg.addGestureRecognizer(tap)
+        
+        // If we are editing, categoryToEdit will != nil
+        if let category = categoryToEdit {
+            nameText.text = category.name
+            addBtn.setTitle("Save Changes", for: .normal)
+            
+            if let url = URL(string: category.imgUrl) {
+                categoryImg.contentMode = .scaleAspectFill
+                categoryImg.kf.setImage(with: url)
+            }
+        }
+        
         
     }
     

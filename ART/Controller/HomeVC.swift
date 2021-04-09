@@ -65,9 +65,7 @@ class HomeVC: UIViewController {
         }
         
     }
-    
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         setCategoriesListener()
         if let user = Auth.auth().currentUser, !user.isAnonymous {
@@ -106,10 +104,7 @@ class HomeVC: UIViewController {
             
         })
     }
-    
-    
-    
-    
+  
     fileprivate func presentLoginController() {
         let storyboard = UIStoryboard(name: Storyboard.loginStoryboard, bundle: nil)
         let loginVC = storyboard.instantiateViewController(identifier: StoryboardId.loginVC)

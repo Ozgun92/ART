@@ -15,7 +15,7 @@ class ProductsVC: UIViewController {
     var category: Category!
     var listener: ListenerRegistration!
     let db = Firestore.firestore()
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,15 +26,7 @@ class ProductsVC: UIViewController {
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         snapShotListener()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        listener.remove()
     }
     
     
@@ -59,13 +51,13 @@ class ProductsVC: UIViewController {
             }
         })
     }
-
-
-func caseAdded(change: DocumentChange, product: Product) {
-    let index = Int(change.newIndex)
-    products.insert(product, at: index)
-    tableView.insertRows(at: [IndexPath(item: index, section: 0)], with: .fade)
-}
+    
+    
+    func caseAdded(change: DocumentChange, product: Product) {
+        let index = Int(change.newIndex)
+        products.insert(product, at: index)
+        tableView.insertRows(at: [IndexPath(item: index, section: 0)], with: .fade)
+    }
     
     func caseRemoved(change: DocumentChange) {
         let oldIndex = Int(change.oldIndex)
@@ -86,8 +78,8 @@ func caseAdded(change: DocumentChange, product: Product) {
             tableView.moveRow(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
         }
     }
-
-
+    
+    
 }
 
 extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
@@ -116,7 +108,6 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
     }
-    
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

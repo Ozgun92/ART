@@ -19,7 +19,7 @@ struct Product {
     let stock: Int
 
     
-    
+    // we are creating a product model with this initializer. We are creating an instance of the Product struct.
     
     init(name: String,
          id: String,
@@ -40,6 +40,8 @@ struct Product {
     }
     
     
+    // we are getting data in form of a dictionairy and turn it into a model of a product - we use it when fetching data from firestore and listening to changes (when we used snapshotlistener)
+    
     init(data: [String: Any]) {
         self.name = data["name"] as? String ?? ""
         self.id = data["id"] as? String ?? ""
@@ -50,6 +52,8 @@ struct Product {
         self.timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
         self.stock = data["stock"] as? Int ?? 0
     }
+    
+    // we have a model of a product and want to turn it into a dictionary that we can send to firestore - we use it to send data to firestore (save data like saving a picture etc.)
     
     
     static func modelToData(product: Product) -> [String: Any] {

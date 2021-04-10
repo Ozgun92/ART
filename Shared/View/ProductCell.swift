@@ -42,11 +42,8 @@ class ProductCell: UITableViewCell {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.locale = Locale.current
         if let price = formatter.string(from: product.price as NSNumber) {
             productPrice.text = price
-            print(formatter.locale!)
-            print(productPrice.text!)
         }
     }
 

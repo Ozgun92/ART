@@ -51,7 +51,7 @@ class AddEditCategoryVC: UIViewController {
     }
     
     @IBAction func addCategoryClicked(_ sender: Any) {
-        activityIndicator.startAnimating()
+        
         uploadImageThenDocument()
     }
     
@@ -61,6 +61,8 @@ class AddEditCategoryVC: UIViewController {
         guard let image = categoryImg.image, let categoryName = nameText.text, categoryName.isNotEmpty else { simpleAlert(title: "Error", message: "Must add category Image and name")
             return
         }
+        
+        activityIndicator.startAnimating()
         
         // Step 1: Turn the image into Data
         

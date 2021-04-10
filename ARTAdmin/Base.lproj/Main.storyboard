@@ -268,6 +268,9 @@
                                 <state key="normal" title="Add Product">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addClicked:" destination="Qsm-xt-4vr" eventType="touchUpInside" id="uYo-KA-gaQ"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N88-SG-DTz">
                                 <rect key="frame" x="20" y="246" width="374" height="128"/>
@@ -311,6 +314,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y27-TH-HCl"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Mlt-To-RwQ" id="SKm-Qb-wcB"/>
+                        <outlet property="addProductBtn" destination="Ed2-Fy-kZN" id="5Yo-oh-84i"/>
+                        <outlet property="productDescTxt" destination="N88-SG-DTz" id="PaF-pe-ChJ"/>
+                        <outlet property="productImgView" destination="2ay-vS-y3Z" id="seO-ud-mhM"/>
+                        <outlet property="productNameTxt" destination="XPV-Xt-Vz2" id="kTB-j4-MoV"/>
+                        <outlet property="productPriceTxt" destination="Hzy-MR-4xH" id="Udm-ms-Z1L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsd-aC-M7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

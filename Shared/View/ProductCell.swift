@@ -34,7 +34,19 @@ class ProductCell: UITableViewCell {
    
         productLbl.text = product.name
         if let url = URL(string: product.imageUrl) {
-            productImg.kf.setImage(with: url)
+            let placeholder = UIImage(named: "placeholder")
+            productImg.kf.indicatorType = .activity
+            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+            productImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        if let price = formatter.string(from: product.price as NSNumber) {
+            productPrice.text = price
+            print(formatter.locale!)
+            print(productPrice.text!)
         }
     }
 

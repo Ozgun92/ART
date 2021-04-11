@@ -101,11 +101,13 @@ class AddEditProductsVC: UIViewController {
         activityIndicator.stopAnimating()
     }
         
+    
+    
     func uploadDocument(url: String) {
         var documentReference: DocumentReference!
-        
+        // creating a model
         var product = Product(name: name, id: "", category: selectedCategory.id, price: price, productDescription: productDescription, imageUrl: url, timeStamp: Timestamp(), stock: 0)
-        
+        // if there is a productToEdit (passed fron the adminProductsVC), means we want to edit a product instead of adding a new one
         if let productEdit = productToEdit {
             documentReference = Firestore.firestore().collection("products").document(productEdit.id)
             product.id = productEdit.id

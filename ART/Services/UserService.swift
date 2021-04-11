@@ -51,6 +51,9 @@ final class _UserService {
             print(self.user)
         })
         
+        
+        // 
+        
         let favsRef = userRef.collection("favorites")
         favsListener = favsRef.addSnapshotListener({ (snap, error) in
             if let error = error {

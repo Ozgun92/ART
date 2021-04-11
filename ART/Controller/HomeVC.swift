@@ -72,7 +72,8 @@ class HomeVC: UIViewController {
             loginOutBtn.title = Log.USER_LOGOUT
             
             // since viewWillAppear will be called every time the view will appear on screen (DUH), we could make the mistake to add a listener every time we open the HomeVC, if we call UserService.getCurrentUser. The function of the singleton creates 2 (one for user and one for favs) listeners every time it is called. This is why we are checking first if there is a user (which would mean there is also a favsListener, but it'd be redundant to check for it too), and if there is none, we want to create them (user and favs).
-            
+            // also, notice how easily we can use the UserService here (due to it being a global singleton)
+            // also, notice the place where we are calling this function; Reason it is best here, is because after we have logged in, this view (HomeVC) will be shown. Every change to the users or favs collection can start here earliest
             if UserService.userListener == nil {
                 UserService.getCurrentUser()
             }
@@ -128,7 +129,7 @@ class HomeVC: UIViewController {
             do {
                 // we sign the current non-anonymous user out
                 try Auth.auth().signOut()
-                // removing the listeners etc.
+                // removing the listeners etc. We don't want any memory leaks
                 UserService.logoutUser()
                 // and sign an anonymous user in, so the next time we start the app, the anonymous user will still be signed in
                 Auth.auth().signInAnonymously { (result, error) in

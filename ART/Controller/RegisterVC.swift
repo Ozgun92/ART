@@ -88,7 +88,7 @@ class RegisterVC: UIViewController {
         //        }
         
         
-        // this could be an anonymous user or a non-anonymour user (in both cases, an authenticated user)
+        // this could be an anonymous user or a non-anonymous user (in both cases, an authenticated user)
         guard let authUser = Auth.auth().currentUser else {
             return
         }
@@ -112,6 +112,7 @@ class RegisterVC: UIViewController {
     }
     
     func createFirestoreUser(user: User) {
+        // don't forget that the id the user document's gonna be, is the UID of the authenticated user (look at ll. 105 - 107)
         let docRef = Firestore.firestore().collection(FIRE_COLLECTION.users).document(user.id)
         
         let userData = User.modelToData(user: user)

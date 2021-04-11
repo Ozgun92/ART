@@ -14,6 +14,7 @@ let UserService = _UserService()
 final class _UserService {
     
     // Variables
+    
     var user = User()
     var favorites = [Product]()
     let auth = Auth.auth()
@@ -25,20 +26,22 @@ final class _UserService {
         // currentUser is the authenticated user in firestore, which may be anonymous or not
         
         guard let authUser = auth.currentUser else {
-
+            
             return true
         }
-
+        
         if authUser.isAnonymous {
             return true
         } else {
             return false
         }
-    }
+    }// we know that we have saved the documents with the uid of the users
     
     func getCurrentUser() {
+        
         guard let authUser = auth.currentUser else { return }
         
+        // we want our snapshotListener to listen to this particular document
         let userRef = db.collection(FIRE_COLLECTION.users).document(authUser.uid)
         userListener = userRef.addSnapshotListener({ (snap, error) in
             
@@ -51,9 +54,7 @@ final class _UserService {
             self.user = User(data: data)
             print(self.user)
         })
-        
-    
-        
+  
         let favsRef = userRef.collection(FIRE_COLLECTION.favorites)
         favsListener = favsRef.addSnapshotListener({ (snap, error) in
             if let error = error {

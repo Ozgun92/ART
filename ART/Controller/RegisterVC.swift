@@ -65,8 +65,8 @@ class RegisterVC: UIViewController {
         guard let email = emailTxt.text, email.isNotEmpty,
               let username = usernameTxt.text, username.isNotEmpty,
               let password = passwordTxt.text, password.isNotEmpty else { simpleAlert(title: "Error", message: "Please fill out all fields")
-                    return
-            }
+            return
+        }
         
         guard let confirmPassTxt = confirmPasswordTxt.text, confirmPassTxt == password else {
             simpleAlert(title: "Error", message: "Passwords do not match")
@@ -75,6 +75,17 @@ class RegisterVC: UIViewController {
         
         
         activityIndicator.startAnimating()
+        
+        //        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+        //            if let error = error {
+        //                debugPrint(error)
+        //                Auth.auth().handleFireAuthError(error: error, vc: self)
+        //                return
+        //            }
+        //
+        
+        //
+        //        }
         
         
         guard let authUser = Auth.auth().currentUser else {
@@ -89,9 +100,30 @@ class RegisterVC: UIViewController {
                 Auth.auth().handleFireAuthError(error: error, vc: self)
                 return
             }
-            print("6")
+            
+            guard let firUser = result?.user else { return }
+            
+            let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+            // upload to Firestore
+            self.createFirestoreUser(user: artUser)
+            
+        }
+    }
+    
+    func createFirestoreUser(user: User) {
+        let docRef = Firestore.firestore().collection("users").document(user.id)
+        
+        let userData = User.modelToData(user: user)
+        
+        docRef.setData(userData) { (error) in
+            if let error = error {
+                Auth.auth().handleFireAuthError(error: error, vc: self)
+                debugPrint("Unable to upload new user document: \(error.localizedDescription)")
+                return
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
             self.activityIndicator.stopAnimating()
-            self.dismiss(animated: true, completion: nil)
         }
     }
 }

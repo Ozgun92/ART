@@ -66,10 +66,13 @@ class HomeVC: UIViewController {
         
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         setCategoriesListener()
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             loginOutBtn.title = Log.USER_LOGOUT
+            if UserService.userListener == nil {
+                UserService.getCurrentUser()
+            }
         } else {
             loginOutBtn.title = Log.USER_LOGIN
         }
@@ -123,6 +126,7 @@ class HomeVC: UIViewController {
                 // we sign the current non-anonymous user out
                 try Auth.auth().signOut()
                 // and sign an anonymous user in, so the next time we start the app, the anonymous user will still be signed in
+                UserService.logoutUser()
                 Auth.auth().signInAnonymously { (result, error) in
                     if let error = error {
                         debugPrint(error)

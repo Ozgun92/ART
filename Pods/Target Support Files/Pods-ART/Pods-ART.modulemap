@@ -1,0 +1,6 @@
+framework module Pods_ART {
+  umbrella header "Pods-ART-umbrella.h"
+
+  export *
+  module * { export * }
+}

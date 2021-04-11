@@ -56,7 +56,7 @@
 		E389BB292610DF71005CD787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E389BB272610DF71005CD787 /* LaunchScreen.storyboard */; };
 		E389BB332610E006005CD787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E389BB0A2610DEB3005CD787 /* Assets.xcassets */; };
 		E389BB372610E6EF005CD787 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E389BB362610E6EF005CD787 /* LoginStoryboard.storyboard */; };
-		E392F99C26230DEF00C35EFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392F99B26230DEF00C35EFE /* Extensions.swift */; };
+		E392F9A926231DAE00C35EFE /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392F9A826231DAE00C35EFE /* UserService.swift */; };
 		E3D0053D262240D90015AE47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0053C262240D90015AE47 /* User.swift */; };
 		E3F4B875261C772600C11C78 /* AdminProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F4B874261C772600C11C78 /* AdminProductsVC.swift */; };
 /* End PBXBuildFile section */
@@ -104,7 +104,7 @@
 		E389BB282610DF71005CD787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E389BB2A2610DF71005CD787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E389BB362610E6EF005CD787 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
-		E392F99B26230DEF00C35EFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E392F9A826231DAE00C35EFE /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E3D0053C262240D90015AE47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E3F4B874261C772600C11C78 /* AdminProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductsVC.swift; sourceTree = "<group>"; };
 		FD624D2647010CAE43B7451E /* Pods_ARTAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARTAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,7 +218,6 @@
 				E389BB202610DF70005CD787 /* AdminHomeVC.swift */,
 				E35DADEA2619F50E0073C1CE /* AddEditCategoryVC.swift */,
 				E36D8992261F3CD700C18D12 /* AddEditProductsVC.swift */,
-				E392F99B26230DEF00C35EFE /* Extensions.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,6 +266,7 @@
 		E389BB002610DEAF005CD787 /* ART */ = {
 			isa = PBXGroup;
 			children = (
+				E392F9A726231D9400C35EFE /* Services */,
 				E36682DB2613AC0900801309 /* XIBs */,
 				E3348F0F2611279300358F11 /* View */,
 				E3348F0E2611278200358F11 /* Controller */,
@@ -300,6 +300,14 @@
 				E389BB0A2610DEB3005CD787 /* Assets.xcassets */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		E392F9A726231D9400C35EFE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E392F9A826231DAE00C35EFE /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,6 +507,7 @@
 			files = (
 				E389BB062610DEAF005CD787 /* HomeVC.swift in Sources */,
 				E3348F1E261138B700358F11 /* Extensions.swift in Sources */,
+				E392F9A926231DAE00C35EFE /* UserService.swift in Sources */,
 				E389BB022610DEAF005CD787 /* AppDelegate.swift in Sources */,
 				E3348F13261128DB00358F11 /* LoginVC.swift in Sources */,
 				E34C10462611E24800637463 /* RoundedViews.swift in Sources */,
@@ -522,7 +531,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E389BB212610DF70005CD787 /* AdminHomeVC.swift in Sources */,
-				E392F99C26230DEF00C35EFE /* Extensions.swift in Sources */,
 				E35DADBD261854320073C1CE /* RoundedViews.swift in Sources */,
 				E35DADBA261850670073C1CE /* HomeVC.swift in Sources */,
 				E36683162614DA7500801309 /* Category.swift in Sources */,

@@ -88,11 +88,12 @@ class RegisterVC: UIViewController {
         //        }
         
         
+        // this could be an anonymous user or a non-anonymour user (in both cases, an authenticated user)
         guard let authUser = Auth.auth().currentUser else {
             return
         }
-        print("5")
         
+        // we are creating a credential for the authUser, so that we can link an existing user, whether anonymous or not
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.link(with: credential) { (result, error) in
             if let error = error {
@@ -102,8 +103,8 @@ class RegisterVC: UIViewController {
             }
             
             guard let firUser = result?.user else { return }
-            
-            let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+            // we want the UID from the authenticated user to be the id of the user in our user collection
+            let artUser = User(id: firUser.uid, email: email, username: username, stripeId: "")
             // upload to Firestore
             self.createFirestoreUser(user: artUser)
             

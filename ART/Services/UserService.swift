@@ -38,7 +38,8 @@ final class _UserService {
     
     func getCurrentUser() {
         guard let authUser = auth.currentUser else { return }
-        let userRef = db.collection("user").document(authUser.uid)
+        
+        let userRef = db.collection(FIRE_COLLECTION.users).document(authUser.uid)
         userListener = userRef.addSnapshotListener({ (snap, error) in
             
             if let error = error {
@@ -51,10 +52,9 @@ final class _UserService {
             print(self.user)
         })
         
+    
         
-        // 
-        
-        let favsRef = userRef.collection("favorites")
+        let favsRef = userRef.collection(FIRE_COLLECTION.favorites)
         favsListener = favsRef.addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)

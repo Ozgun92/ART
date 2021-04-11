@@ -44,3 +44,10 @@ struct Log {
     static let USER_LOGIN = "login"
     static let USER_LOGOUT = "logout"
 }
+
+struct FIRE_COLLECTION {
+    static let users = "users"
+    static let products = "products"
+    static let categories = "categories"
+    static let favorites = "favorites"
+}

@@ -66,10 +66,13 @@ class HomeVC: UIViewController {
         
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setCategoriesListener()
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             loginOutBtn.title = Log.USER_LOGOUT
+            
+            // since viewWillAppear will be called every time the view will appear on screen (DUH), we could make the mistake to add a listener every time we open the HomeVC, if we call UserService.getCurrentUser. The function of the singleton creates 2 (one for user and one for favs) listeners every time it is called. This is why we are checking first if there is a user (which would mean there is also a favsListener, but it'd be redundant to check for it too), and if there is none, we want to create them (user and favs).
+            
             if UserService.userListener == nil {
                 UserService.getCurrentUser()
             }
@@ -125,8 +128,9 @@ class HomeVC: UIViewController {
             do {
                 // we sign the current non-anonymous user out
                 try Auth.auth().signOut()
-                // and sign an anonymous user in, so the next time we start the app, the anonymous user will still be signed in
+                // removing the listeners etc.
                 UserService.logoutUser()
+                // and sign an anonymous user in, so the next time we start the app, the anonymous user will still be signed in
                 Auth.auth().signInAnonymously { (result, error) in
                     if let error = error {
                         debugPrint(error)

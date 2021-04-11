@@ -112,7 +112,7 @@ class RegisterVC: UIViewController {
     }
     
     func createFirestoreUser(user: User) {
-        let docRef = Firestore.firestore().collection("users").document(user.id)
+        let docRef = Firestore.firestore().collection(FIRE_COLLECTION.users).document(user.id)
         
         let userData = User.modelToData(user: user)
         

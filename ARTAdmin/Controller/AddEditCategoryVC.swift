@@ -111,11 +111,11 @@ class AddEditCategoryVC: UIViewController {
         
         if let categoryToEdit = categoryToEdit {
             // we are editing
-            docRef = Firestore.firestore().collection("categories").document(categoryToEdit.id)
+            docRef = Firestore.firestore().collection(FIRE_COLLECTION.categories).document(categoryToEdit.id)
             category.id = categoryToEdit.id
         } else {
             // new category
-            docRef = Firestore.firestore().collection("categories").document()
+            docRef = Firestore.firestore().collection(FIRE_COLLECTION.categories).document()
             category.id = docRef.documentID
         }
   

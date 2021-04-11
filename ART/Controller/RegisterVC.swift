@@ -87,12 +87,13 @@ class RegisterVC: UIViewController {
         //
         //        }
         
-        
+  
+   
         // this could be an anonymous user or a non-anonymous user (in both cases, an authenticated user)
         guard let authUser = Auth.auth().currentUser else {
             return
         }
-        
+
         // we are creating a credential for the authUser, so that we can link an existing user, whether anonymous or not
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.link(with: credential) { (result, error) in
@@ -101,7 +102,7 @@ class RegisterVC: UIViewController {
                 Auth.auth().handleFireAuthError(error: error, vc: self)
                 return
             }
-            
+
             guard let firUser = result?.user else { return }
             // we want the UID from the authenticated user to be the id of the user in our user collection
             let artUser = User(id: firUser.uid, email: email, username: username, stripeId: "")

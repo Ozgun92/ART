@@ -11,6 +11,11 @@ import Firebase
 
 let UserService = _UserService()
 
+// This class fullfills multiple functions:
+// - Tracking whether there are changes in user collections and fav-subcollections
+// - For this purpose, creating and removing listeners
+// - Setting the current User
+
 final class _UserService {
     
     // Variables

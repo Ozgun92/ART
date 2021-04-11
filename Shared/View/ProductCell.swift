@@ -45,6 +45,13 @@ class ProductCell: UITableViewCell {
         if let price = formatter.string(from: product.price as NSNumber) {
             productPrice.text = price
         }
+        
+        if UserService.favorites.contains(product) {
+            // Favorite
+            favoriteBtn.setImage(UIImage(named: AppImages.FilledStar), for: .normal)
+        } else {
+            favoriteBtn.setImage(UIImage(named: AppImages.EmptyStar), for: .normal)
+        }
     }
 
     @IBAction func addToCartClicked(_ sender: Any) {

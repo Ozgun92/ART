@@ -75,16 +75,16 @@ final class _UserService {
     }
     
     func favoriteSelected(product: Product) {
-        let favesRef = Firestore.firestore().collection("users").document(user.id).collection("favorites")
+       
+        let favsRef = db.collection(FIRE_COLLECTION.users).document(user.id).collection(FIRE_COLLECTION.favorites)
         
         if favorites.contains(product) {
-            // we remove it as a favorite
-            favorites.removeAll{ $0 == product }
-            favesRef.document(product.id).delete()
+            favorites.removeAll{$0 == product}
+            favsRef.document(product.id).delete()
         } else {
             favorites.append(product)
             let data = Product.modelToData(product: product)
-            favesRef.document(product.id).setData(data)
+            favsRef.document(product.id).setData(data)
         }
     }
     

@@ -36,9 +36,13 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     func snapShotListener() {
         
         var ref: Query!
+        // if showFavorites is true, it means the favoritesButton was clicked and the user wants to see all the images he or she has favorited
         if showFavorites {
-            ref = db.collection(FIRE_COLLECTION.users).document(UserService.user.id).collection(FIRE_COLLECTION.favorites)
+            ref =
+                // In this case, we want to grab the document of the logged in user, go into his subcollection of favorites and listen to changes there
+                db.collection(FIRE_COLLECTION.users).document(UserService.user.id).collection(FIRE_COLLECTION.favorites)
         } else {
+            // if the favoritesButton was not clicked and hence showFavorites is false, use the ref for the products in the category that was passed by the HomeVC and listen to changes
             ref = db.products(category: category.id)
         }
         

@@ -225,6 +225,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             if let destination = segue.destination as? ProductsVC {
                 destination.category = selectedCategory
             }
+            // else we have clicked on the favoritesClicked button and thus our showFavorites boolean we are passing into the ProductsVC will be true
         } else if segue.identifier == Segues.ToFavorites {
             if let destination = segue.destination as? ProductsVC {
                 destination.category = selectedCategory

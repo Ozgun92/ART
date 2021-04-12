@@ -55,6 +55,7 @@ class ProductCell: UITableViewCell {
             productPrice.text = price
         }
         
+        // We want the visual appearance of the favorite button to change depending on whether it is favorited or not
         if UserService.favorites.contains(product) {
             // Favorite
             favoriteBtn.setImage(UIImage(named: AppImages.FilledStar), for: .normal)

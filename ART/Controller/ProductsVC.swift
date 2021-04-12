@@ -17,6 +17,7 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     var category: Category!
     var listener: ListenerRegistration!
     let db = Firestore.firestore()
+    var showFavorites = false
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +34,15 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     
     
     func snapShotListener() {
-        listener = db.products(category: category.id).addSnapshotListener({ (snap, error) in
+        
+        var ref: Query!
+        if showFavorites {
+            ref = db.collection(FIRE_COLLECTION.users).document(UserService.user.id).collection(FIRE_COLLECTION.favorites)
+        } else {
+            ref = db.products(category: category.id)
+        }
+        
+        listener = ref.addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
             } else {
@@ -56,9 +65,12 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     // this is being called by the tapping on a star (favorited) in the ProductCell. The IBAcion's name's called favoriteClicked. With this function, we are letting the ProductsVC know if a product was favorited
     func productFavorited(product: Product) {
         UserService.favoriteSelected(product: product)
+        // we want to reload the tableView for that row
         // return index of the product passed in
         guard let index = products.firstIndex(of: product) else { return }
+        // reload the tableView at this row. This is more efficient than reloadData, because we reload much less
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+
     }
     
     

@@ -58,7 +58,11 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="bar_button_cart" id="kTe-Kd-YPo"/>
-                            <barButtonItem image="bar_button_star" id="NGe-e3-Gew"/>
+                            <barButtonItem image="bar_button_star" id="NGe-e3-Gew">
+                                <connections>
+                                    <action selector="favoritesClicked:" destination="BYZ-38-t0r" id="9gQ-0x-jIt"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -66,6 +70,7 @@
                         <outlet property="collectionView" destination="OjX-mJ-wlD" id="NkA-Am-jT0"/>
                         <outlet property="loginOutBtn" destination="RDQ-uD-HUf" id="6BN-FM-GwL"/>
                         <segue destination="0XC-5q-Uzb" kind="show" identifier="toProductsVC" id="1g2-S7-cXH"/>
+                        <segue destination="0XC-5q-Uzb" kind="show" identifier="toFavorites" id="knW-u0-EwJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -135,6 +140,9 @@
             <point key="canvasLocation" x="18.840579710144929" y="45.535714285714285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="knW-u0-EwJ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bar_button_cart" width="27" height="24"/>
         <image name="bar_button_star" width="26" height="26"/>

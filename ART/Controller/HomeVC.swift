@@ -89,6 +89,7 @@ class HomeVC: UIViewController {
     }
     
     func setCategoriesListener() {
+        
         listener = db.categories.addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -118,6 +119,12 @@ class HomeVC: UIViewController {
         present(loginVC, animated: true, completion: nil)
     }
     
+    
+    
+    @IBAction func favoritesClicked(_ sender: Any) {
+        performSegue(withIdentifier: Segues.ToFavorites, sender: self)
+        
+    }
     
     
     @IBAction func loginOutClicked(_ sender: Any) {
@@ -217,6 +224,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if segue.identifier == Segues.ToProducts {
             if let destination = segue.destination as? ProductsVC {
                 destination.category = selectedCategory
+            }
+        } else if segue.identifier == Segues.ToFavorites {
+            if let destination = segue.destination as? ProductsVC {
+                destination.category = selectedCategory
+                destination.showFavorites = true
             }
         }
     }

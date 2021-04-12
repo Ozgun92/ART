@@ -8,7 +8,9 @@
 import UIKit
 import Firebase
 
-class ProductsVC: UIViewController {
+class ProductsVC: UIViewController, ProductCellDelegate {
+
+    
     
     var products = [Product]()
     // the category that was passed from the HomeVC in the prepareForSegue. We are force unwrapping it because we can be sure it has a value
@@ -51,6 +53,12 @@ class ProductsVC: UIViewController {
             }
         })
     }
+    // this is being called by the tapping on a star (favorited) in the ProductCell. The IBAcion's name's called favoriteClicked. With this function, we are letting the ProductsVC know if a product was favorited
+    func productFavorited(product: Product) {
+        UserService.favoriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else { return }
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
     
     
     func caseAdded(change: DocumentChange, product: Product) {
@@ -90,7 +98,8 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.ProductCell, for: indexPath) as? ProductCell {
-            cell.configureCell(product: products[indexPath.item])
+            // here, we are also setting the ProductsVC as the delegate
+            cell.configureCell(product: products[indexPath.item], delegate: self)
             return cell
         }
         return UITableViewCell()

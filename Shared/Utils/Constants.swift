@@ -22,6 +22,7 @@ struct AppImages {
     static let redCheck = "red_check"
     static let FilledStar = "filled_star"
     static let EmptyStar = "empty_star"
+    static let placeholder = "placeholder"
 }
 
 struct AppColors {

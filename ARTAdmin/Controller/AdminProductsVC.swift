@@ -49,5 +49,11 @@ class AdminProductsVC: ProductsVC {
             }
         }
     }
+    
+    override func productFavorited(product: Product) {
+        return
+    }
+    
+
 }
 

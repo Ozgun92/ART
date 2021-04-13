@@ -58,6 +58,8 @@
 		E389BB372610E6EF005CD787 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E389BB362610E6EF005CD787 /* LoginStoryboard.storyboard */; };
 		E392F9A926231DAE00C35EFE /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392F9A826231DAE00C35EFE /* UserService.swift */; };
 		E3D0053D262240D90015AE47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0053C262240D90015AE47 /* User.swift */; };
+		E3E796192625CD5B00CF817C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392F9A826231DAE00C35EFE /* UserService.swift */; };
+		E3E7961C2625CD8200CF817C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0053C262240D90015AE47 /* User.swift */; };
 		E3F4B875261C772600C11C78 /* AdminProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F4B874261C772600C11C78 /* AdminProductsVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -532,6 +534,7 @@
 			files = (
 				E389BB212610DF70005CD787 /* AdminHomeVC.swift in Sources */,
 				E35DADBD261854320073C1CE /* RoundedViews.swift in Sources */,
+				E3E796192625CD5B00CF817C /* UserService.swift in Sources */,
 				E35DADBA261850670073C1CE /* HomeVC.swift in Sources */,
 				E36683162614DA7500801309 /* Category.swift in Sources */,
 				E389BB1D2610DF70005CD787 /* AppDelegate.swift in Sources */,
@@ -547,6 +550,7 @@
 				E34ACFAF2615FDCD000143AD /* ProductsVC.swift in Sources */,
 				E35DADC0261854420073C1CE /* Constants.swift in Sources */,
 				E35DADC62618549C0073C1CE /* ProductDetailVC.swift in Sources */,
+				E3E7961C2625CD8200CF817C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -70,6 +70,7 @@ class ProductCell: UITableViewCell {
     @IBAction func favoriteClicked(_ sender: Any) {
         // we are telling our delegate to execute the function productFavorited and pass in a product
         // we have to pass in a product, that is why we have to think about how we get one. Well, when configureCell gets called, a product is passed in. But without declaring a product in the scope of the class of the ProducCell, we don't have access to it. So, what we do, is on line 38 assign the product that was passed in configureCell to the product we declared in the scope of the class on line 29
+        
         delegate?.productFavorited(product: product)
     }
     

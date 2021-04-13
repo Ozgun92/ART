@@ -68,6 +68,11 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     }
     // this is being called by the tapping on a star (favorited) in the ProductCell. The IBAcion's name's called favoriteClicked. With this function, we are letting the ProductsVC know if a product was favorited
     func productFavorited(product: Product) {
+        if UserService.isGuest {
+            self.simpleAlert(title: "Hey :)", message: "This is a user-only feature. Please create a registered user to take advantage of all features.")
+            return
+        }
+        
         UserService.favoriteSelected(product: product)
         // we want to reload the tableView for that row
         // return index of the product passed in

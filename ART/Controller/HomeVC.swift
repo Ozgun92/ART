@@ -122,6 +122,10 @@ class HomeVC: UIViewController {
     
     
     @IBAction func favoritesClicked(_ sender: Any) {
+        if UserService.isGuest {
+            self.simpleAlert(title: "Hey :)", message: "This is a user-only feature. Please create a registered user to take advantage of all features.")
+            return
+        }
         performSegue(withIdentifier: Segues.ToFavorites, sender: self)
         
     }
